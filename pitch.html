@@ -474,11 +474,11 @@
                 gap: 1rem;
             }
 
-            /* Force all inline grids to single column on mobile */
-            .slide [style*="grid-template-columns: repeat(2"] {
+            /* Force ALL grids to single column on mobile */
+            .slide [style*="grid-template-columns"] {
                 grid-template-columns: 1fr !important;
             }
-            .slide [style*="grid-template-columns: repeat(4"] {
+            .slide [style*="display: grid"] {
                 grid-template-columns: 1fr !important;
             }
             
