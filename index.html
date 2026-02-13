@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>American Institute for English Proficiency - Master English, Transform Your Future</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-navy: #1a2951;
-            --secondary-navy: #2c3e50;
-            --accent-gold: #f39c12;
-            --accent-amber: #f1c40f;
-            --light-gold: #fdf6e3;
-            --text-dark: #2c3e50;
-            --text-light: #7f8c8d;
+            --primary-blue: #003366;
+            --secondary-blue: #1a4a72;
+            --accent-purple: #6B3FA0;
+            --light-purple: #9196ff;
+            --accent-teal: #008B8B;
+            --light-blue: #e6f3ff;
+            --soft-yellow: #f0ff96;
+            --coral: #ff8f60;
             --white: #ffffff;
-            --light-gray: #f8f9fa;
-            --border-gray: #e9ecef;
+            --light-gray: #f8fafc;
+            --border-gray: #e2e8f0;
+            --text-dark: #1a202c;
+            --text-light: #64748b;
         }
         
         * {
@@ -31,6 +34,7 @@
             line-height: 1.6;
             color: var(--text-dark);
             overflow-x: hidden;
+            background: var(--white);
         }
         
         .container {
@@ -39,10 +43,32 @@
             padding: 0 20px;
         }
         
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+        }
+        
+        h2 {
+            font-size: 2.8rem;
+            color: var(--primary-blue);
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+        }
+        
         /* Header & Navigation */
         .header {
             background: var(--white);
-            box-shadow: 0 2px 20px rgba(26, 41, 81, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 51, 102, 0.1);
             position: fixed;
             top: 0;
             left: 0;
@@ -76,9 +102,10 @@
         }
         
         .logo-text {
+            font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             font-weight: 800;
-            color: var(--primary-navy);
+            color: var(--primary-blue);
         }
         
         .nav-links {
@@ -91,6 +118,7 @@
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 500;
+            font-size: 1rem;
             transition: color 0.3s;
             position: relative;
         }
@@ -102,7 +130,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent-gold);
+            background: var(--accent-purple);
             transition: width 0.3s ease;
         }
         
@@ -111,40 +139,25 @@
         }
         
         .nav-links a:hover {
-            color: var(--accent-gold);
+            color: var(--accent-purple);
         }
         
         .nav-cta {
-            background: var(--accent-gold);
+            background: var(--accent-purple);
             color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .nav-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .nav-cta:hover::before {
-            left: 100%;
+            border: none;
+            font-size: 0.95rem;
         }
         
         .nav-cta:hover {
-            background: var(--accent-amber);
+            background: var(--primary-blue);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+            box-shadow: 0 8px 20px rgba(107, 63, 160, 0.3);
         }
         
         /* Floating CTA Button */
@@ -152,34 +165,27 @@
             position: fixed;
             right: 20px;
             bottom: 20px;
-            background: var(--accent-gold);
+            background: var(--accent-purple);
             color: white;
             padding: 1rem 1.5rem;
-            border-radius: 50px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             z-index: 999;
-            box-shadow: 0 5px 25px rgba(243, 156, 18, 0.4);
+            box-shadow: 0 8px 25px rgba(107, 63, 160, 0.4);
             transition: all 0.3s ease;
-            animation: pulse 2s infinite;
         }
         
         .floating-cta:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(243, 156, 18, 0.6);
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(107, 63, 160, 0.5);
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(26, 41, 81, 0.95) 0%, rgba(44, 62, 80, 0.95) 100%), 
-                        url('https://www.aiepro.com/wp-content/uploads/2019/09/AIEP-WEBSITE-SLIDER-2-1.jpg') center/cover;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--accent-purple) 100%);
             color: white;
-            padding: 120px 0 80px;
+            padding: 140px 0 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -192,8 +198,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="50" cy="10" r="1.5" fill="rgba(255,255,255,0.04)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.5;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="0.8" fill="rgba(255,255,255,0.03)"/><circle cx="75" cy="75" r="0.8" fill="rgba(255,255,255,0.03)"/><circle cx="50" cy="10" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
         }
         
         .hero-content {
@@ -202,37 +207,26 @@
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
-            animation: slideInUp 1s ease-out;
+            line-height: 1.1;
         }
         
         .hero h1 span {
-            color: var(--accent-gold);
+            color: var(--soft-yellow);
             position: relative;
-        }
-        
-        .hero h1 span::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--accent-gold);
-            border-radius: 2px;
         }
         
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2.5rem;
-            opacity: 0.9;
-            max-width: 600px;
+            opacity: 0.95;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            animation: slideInUp 1s ease-out 0.2s both;
+            font-weight: 400;
         }
         
         .hero-ctas {
@@ -241,52 +235,34 @@
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            animation: slideInUp 1s ease-out 0.4s both;
         }
         
         .btn-primary {
-            background: var(--accent-gold);
-            color: white;
-            padding: 1rem 2.5rem;
+            background: var(--soft-yellow);
+            color: var(--primary-blue);
+            padding: 1.1rem 2.5rem;
             border: none;
-            border-radius: 30px;
+            border-radius: 6px;
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             display: inline-block;
             transition: all 0.3s;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .btn-primary:hover::before {
-            left: 100%;
         }
         
         .btn-primary:hover {
-            background: var(--accent-amber);
+            background: #ffffff;
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.3);
+            box-shadow: 0 10px 30px rgba(240, 255, 150, 0.4);
         }
         
         .btn-secondary {
             background: transparent;
             color: white;
-            padding: 1rem 2.5rem;
+            padding: 1.1rem 2.5rem;
             border: 2px solid white;
-            border-radius: 30px;
+            border-radius: 6px;
             font-size: 1.1rem;
             font-weight: 600;
             text-decoration: none;
@@ -296,114 +272,134 @@
         
         .btn-secondary:hover {
             background: white;
-            color: var(--primary-navy);
+            color: var(--primary-blue);
             transform: translateY(-3px);
         }
         
-        /* Stats Section */
+        /* Stats Section - TOEFL Style */
         .stats {
             background: var(--light-gray);
-            padding: 60px 0;
+            padding: 80px 0;
             position: relative;
+        }
+        
+        .stats-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .stats-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .stats-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
         }
         
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            text-align: center;
-        }
-        
-        .stat-item {
-            transition: transform 0.3s ease;
-        }
-        
-        .stat-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .stat-item h3 {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--accent-gold);
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .stat-item p {
-            color: var(--text-light);
-            font-weight: 500;
-        }
-        
-        /* Team Section */
-        .team {
-            padding: 100px 0;
-            background: white;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
             margin-top: 3rem;
         }
         
-        .team-card {
+        .stat-card {
             background: white;
-            border-radius: 20px;
-            padding: 2rem;
+            border-radius: 12px;
+            padding: 2.5rem;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(26, 41, 81, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 51, 102, 0.08);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            border-top: 4px solid var(--light-purple);
         }
         
-        .team-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-amber));
+        .stat-card:nth-child(2) {
+            border-top-color: var(--soft-yellow);
         }
         
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(26, 41, 81, 0.15);
+        .stat-card:nth-child(3) {
+            border-top-color: var(--coral);
         }
         
-        .team-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            object-fit: cover;
-            border: 4px solid var(--accent-gold);
-            transition: transform 0.3s ease;
+        .stat-card:nth-child(4) {
+            border-top-color: var(--accent-purple);
         }
         
-        .team-card:hover .team-photo {
-            transform: scale(1.1);
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 50px rgba(0, 51, 102, 0.15);
         }
         
-        .team-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-navy);
+        .stat-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 0.8rem;
+            line-height: 1;
+        }
+        
+        .stat-card p {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
         }
         
-        .team-card .role {
-            color: var(--accent-gold);
-            font-weight: 600;
-            margin-bottom: 1rem;
+        .stat-card .stat-detail {
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
         
-        .team-card p {
-            color: var(--text-light);
-            line-height: 1.6;
+        /* TOEFL Connection Section */
+        .toefl-connection {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+        }
+        
+        .toefl-connection .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .toefl-connection h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .toefl-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .toefl-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+        
+        .exam-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+        }
+        
+        .exam-badge {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.1);
+            font-weight: 600;
+            color: var(--primary-blue);
+            border: 2px solid var(--light-purple);
         }
         
         /* Programs Section */
@@ -418,45 +414,34 @@
         }
         
         .section-header h2 {
-            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
             font-weight: 700;
-            color: var(--primary-navy);
-            margin-bottom: 1rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
             position: relative;
-        }
-        
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--accent-gold);
-            border-radius: 2px;
         }
         
         .section-header p {
             font-size: 1.2rem;
             color: var(--text-light);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
         
         .programs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
         }
         
         .program-card {
             background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 40px rgba(26, 41, 81, 0.1);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 30px rgba(0, 51, 102, 0.08);
             transition: all 0.3s;
-            border-top: 4px solid var(--accent-gold);
+            border: 1px solid var(--border-gray);
             position: relative;
             overflow: hidden;
         }
@@ -465,58 +450,128 @@
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(243, 156, 18, 0.05), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .program-card:hover::before {
-            left: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-purple), var(--light-purple));
         }
         
         .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(26, 41, 81, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 50px rgba(0, 51, 102, 0.12);
         }
         
         .program-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-navy);
-            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1.2rem;
         }
         
         .program-card p {
             color: var(--text-light);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
         }
         
         .program-features {
             list-style: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
         
         .program-features li {
-            padding: 0.3rem 0;
+            padding: 0.6rem 0;
             color: var(--text-dark);
             position: relative;
             padding-left: 1.5rem;
+            font-weight: 500;
         }
         
         .program-features li::before {
             content: '✓';
-            color: var(--accent-gold);
+            color: var(--accent-purple);
             font-weight: bold;
             position: absolute;
             left: 0;
         }
         
-        /* Learning Environment Section */
-        .learning-environment {
+        /* Team Section */
+        .team {
             padding: 100px 0;
             background: var(--light-gray);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 51, 102, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--light-purple), var(--coral));
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 50px rgba(0, 51, 102, 0.12);
+        }
+        
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            object-fit: cover;
+            border: 4px solid var(--accent-purple);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-card:hover .team-photo {
+            transform: scale(1.1);
+        }
+        
+        .team-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-card .role {
+            color: var(--accent-purple);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .team-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        
+        /* Learning Environment */
+        .learning-environment {
+            padding: 100px 0;
+            background: white;
         }
         
         .environment-grid {
@@ -528,15 +583,16 @@
         
         .environment-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(26, 41, 81, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 51, 102, 0.08);
             transition: all 0.3s ease;
+            border: 1px solid var(--border-gray);
         }
         
         .environment-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(26, 41, 81, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 50px rgba(0, 51, 102, 0.12);
         }
         
         .environment-image {
@@ -550,15 +606,16 @@
         }
         
         .environment-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-navy);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-blue);
             margin-bottom: 1rem;
         }
         
         .environment-card p {
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.7;
         }
         
         /* Pricing Section */
@@ -572,12 +629,12 @@
             justify-content: center;
             margin-bottom: 3rem;
             background: white;
-            border-radius: 50px;
+            border-radius: 8px;
             padding: 0.5rem;
             max-width: 400px;
             margin-left: auto;
             margin-right: auto;
-            box-shadow: 0 10px 40px rgba(26, 41, 81, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 51, 102, 0.08);
         }
         
         .pricing-tab {
@@ -585,16 +642,17 @@
             padding: 1rem 1.5rem;
             background: transparent;
             border: none;
-            border-radius: 25px;
+            border-radius: 6px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            color: var(--text-dark);
         }
         
         .pricing-tab.active {
-            background: var(--accent-gold);
+            background: var(--accent-purple);
             color: white;
-            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+            box-shadow: 0 4px 15px rgba(107, 63, 160, 0.3);
         }
         
         .pricing-content {
@@ -607,23 +665,24 @@
         
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
         
         .pricing-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 12px;
             padding: 2.5rem;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(26, 41, 81, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 51, 102, 0.08);
             transition: all 0.3s;
             position: relative;
+            border: 1px solid var(--border-gray);
         }
         
         .pricing-card.popular {
-            border: 3px solid var(--accent-gold);
+            border: 3px solid var(--accent-purple);
             transform: scale(1.05);
             position: relative;
         }
@@ -634,37 +693,38 @@
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--accent-gold);
+            background: var(--accent-purple);
             color: white;
             padding: 0.5rem 1.5rem;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 600;
-            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+            box-shadow: 0 4px 15px rgba(107, 63, 160, 0.3);
         }
         
         .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(26, 41, 81, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 50px rgba(0, 51, 102, 0.12);
         }
         
         .pricing-card.popular:hover {
-            transform: scale(1.05) translateY(-10px);
+            transform: scale(1.05) translateY(-8px);
         }
         
         .pricing-card h3 {
-            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
             font-weight: 700;
-            color: var(--primary-navy);
+            color: var(--primary-blue);
             margin-bottom: 1rem;
         }
         
         .pricing-card .price {
-            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
             font-weight: 800;
-            color: var(--accent-gold);
+            color: var(--accent-purple);
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
         
         .pricing-card .price-note {
@@ -680,15 +740,16 @@
         }
         
         .pricing-features li {
-            padding: 0.5rem 0;
+            padding: 0.6rem 0;
             color: var(--text-dark);
             position: relative;
             padding-left: 1.5rem;
+            font-weight: 500;
         }
         
         .pricing-features li::before {
             content: '✓';
-            color: var(--accent-gold);
+            color: var(--accent-purple);
             font-weight: bold;
             position: absolute;
             left: 0;
@@ -707,15 +768,16 @@
         
         .faq-item {
             background: var(--light-gray);
-            border-radius: 15px;
+            border-radius: 12px;
             margin-bottom: 1rem;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(26, 41, 81, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.08);
             transition: all 0.3s ease;
+            border: 1px solid var(--border-gray);
         }
         
         .faq-item:hover {
-            box-shadow: 0 8px 25px rgba(26, 41, 81, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.12);
         }
         
         .faq-question {
@@ -726,7 +788,7 @@
             text-align: left;
             font-size: 1.1rem;
             font-weight: 600;
-            color: var(--primary-navy);
+            color: var(--primary-blue);
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
@@ -735,14 +797,14 @@
         }
         
         .faq-question:hover {
-            background: rgba(243, 156, 18, 0.1);
+            background: rgba(107, 63, 160, 0.05);
         }
         
         .faq-question::after {
             content: '+';
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--accent-gold);
+            color: var(--accent-purple);
             transition: transform 0.3s ease;
         }
         
@@ -753,41 +815,30 @@
         .faq-answer {
             padding: 0 1.5rem 1.5rem;
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.7;
             display: none;
         }
         
         .faq-answer.active {
             display: block;
-            animation: slideDown 0.3s ease-out;
-        }
-        
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
         
         /* Form Section */
         .form-section {
             padding: 100px 0;
-            background: white;
+            background: var(--light-blue);
         }
         
         .form-container {
             max-width: 800px;
             margin: 0 auto;
-            background: var(--light-gray);
-            border-radius: 20px;
+            background: white;
+            border-radius: 12px;
             padding: 3rem;
-            box-shadow: 0 10px 40px rgba(26, 41, 81, 0.1);
+            box-shadow: 0 12px 40px rgba(0, 51, 102, 0.1);
             position: relative;
             overflow: hidden;
+            border: 1px solid var(--border-gray);
         }
         
         .form-container::before {
@@ -797,7 +848,7 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-amber));
+            background: linear-gradient(90deg, var(--accent-purple), var(--light-purple));
         }
         
         .form-grid {
@@ -813,7 +864,7 @@
         
         .form-group label {
             font-weight: 600;
-            color: var(--primary-navy);
+            color: var(--primary-blue);
             margin-bottom: 0.5rem;
         }
         
@@ -822,7 +873,7 @@
         .form-group textarea {
             padding: 1rem;
             border: 2px solid var(--border-gray);
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 1rem;
             transition: all 0.3s;
             background: white;
@@ -832,8 +883,8 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.1);
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 3px rgba(107, 63, 160, 0.1);
             transform: translateY(-2px);
         }
         
@@ -844,7 +895,7 @@
         /* Testimonials */
         .testimonials {
             padding: 100px 0;
-            background: var(--primary-navy);
+            background: var(--primary-blue);
             color: white;
             position: relative;
             overflow: hidden;
@@ -857,7 +908,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
         }
         
         .testimonials-grid {
@@ -870,7 +921,7 @@
         
         .testimonial-card {
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            border-radius: 12px;
             padding: 2rem;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -893,7 +944,7 @@
         .testimonial-card p::before {
             content: '"';
             font-size: 3rem;
-            color: var(--accent-gold);
+            color: var(--soft-yellow);
             position: absolute;
             top: -10px;
             left: -10px;
@@ -901,7 +952,7 @@
         
         .testimonial-author {
             font-weight: 600;
-            color: var(--accent-gold);
+            color: var(--soft-yellow);
         }
         
         .testimonial-role {
@@ -912,23 +963,25 @@
         /* Branches */
         .branches {
             padding: 100px 0;
-            background: white;
+            background: var(--light-gray);
         }
         
         .branches-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
         
         .branch-card {
-            background: var(--light-gray);
-            border-radius: 15px;
+            background: white;
+            border-radius: 12px;
             padding: 2rem;
             text-align: center;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 51, 102, 0.08);
+            border: 1px solid var(--border-gray);
         }
         
         .branch-card::before {
@@ -938,16 +991,17 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: var(--accent-gold);
+            background: var(--accent-purple);
         }
         
         .branch-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(26, 41, 81, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 50px rgba(0, 51, 102, 0.12);
         }
         
         .branch-card h3 {
-            color: var(--primary-navy);
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-blue);
             font-weight: 700;
             margin-bottom: 1rem;
         }
@@ -965,18 +1019,19 @@
             color: var(--text-dark);
             margin: 0.5rem 0;
             padding: 0.5rem;
-            background: rgba(243, 156, 18, 0.1);
-            border-radius: 8px;
+            background: rgba(107, 63, 160, 0.05);
+            border-radius: 6px;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
         
         .branch-contacts li:hover {
-            background: rgba(243, 156, 18, 0.2);
+            background: rgba(107, 63, 160, 0.1);
         }
         
         /* Footer */
         .footer {
-            background: var(--primary-navy);
+            background: var(--primary-blue);
             color: white;
             padding: 60px 0 30px;
             position: relative;
@@ -990,7 +1045,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="footergrid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23footergrid)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="footergrid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23footergrid)"/></svg>');
         }
         
         .footer-content {
@@ -1003,7 +1058,8 @@
         }
         
         .footer-section h3 {
-            color: var(--accent-gold);
+            font-family: 'Playfair Display', serif;
+            color: var(--soft-yellow);
             margin-bottom: 1rem;
         }
         
@@ -1016,7 +1072,7 @@
         }
         
         .footer-section a:hover {
-            color: var(--accent-gold);
+            color: var(--soft-yellow);
         }
         
         .footer-bottom {
@@ -1035,11 +1091,15 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
             .hero-ctas {
                 flex-direction: column;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
             
             .pricing-card.popular {
@@ -1061,6 +1121,10 @@
             .environment-grid {
                 grid-template-columns: 1fr;
             }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
         }
         
         /* Smooth Scrolling */
@@ -1080,17 +1144,6 @@
             }
         }
         
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
         .fade-in {
             animation: fadeInUp 0.8s ease-out;
         }
@@ -1102,13 +1155,13 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: rgba(243, 156, 18, 0.2);
+            background: rgba(107, 63, 160, 0.2);
             z-index: 9999;
         }
         
         .scroll-progress {
             height: 100%;
-            background: var(--accent-gold);
+            background: var(--accent-purple);
             width: 0%;
             transition: width 0.1s ease;
         }
@@ -1124,7 +1177,7 @@
     <header class="header">
         <nav class="container nav">
             <a href="#" class="logo">
-                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAQDAwQDAwQEAwQFBAQFBgoHBgYGBg0JCggKDw0QEA8NDw4RExgUERIXEg4PFRwVFxkZGxsbEBQdHx0aHxgaGxr/2wBDAQQFBQYFBgwHBwwaEQ8RGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhr/wAARCABTAM4DASIAAhEBAxEB/8QAHAABAAICAwEAAAAAAAAAAAAAAAYHBQgDBAkC/8QATRAAAQQCAQICBwILAQoPAAAAAQIDBAUABhEHEhMhCBQiMTJBYRVRFhcjQlJWcYGVodJTCTM3cpKTlLGztCQmQ1RVYmN2gpGio7LBwv/EABwBAQACAwEBAQAAAAAAAAAAAAABAwIEBQcGCP/EADsRAAEDAwIEAgcFBgcAAAAAAAEAAhEDBCESMQVBUWEigQYTFHGhwdEyQnKS8AcWI5Gx0jM1Q1JTsvH/2gAMAwEAAhEDEQA/AN/sZHbvfNV1mWmJsey09RKUjxEszZ7TCynnjkBSgeMxv43+n369az/GI/8AXl7beu8am03EfhP0USOqmmMhf43+n369az/GI/8AXnx+OLp3+vmr/wAZj/15l7Jc/wDE78rv7VGodVN8ZCPxx9Ov191b+NR/685GOrmgS32mIm763IfdWENttW7C1KUfcAArk4Npcj/Sd+V39qam9VM8YxmsskxjGETGMYRMYxhExjGETGMYRMYxhExjGETGMYRMYxhF5sen/wD4ZKn/ALvMf7d/NUs2w/ugLKk9X6ZfyXQNfyeezU/P0r6Nf5Nbfh+ZXHrf4hTPVHoBF0/ZtUh1EjWqR6fTVNYH3F17SlueNGS53ElOeWjDSn3UNI+JagBm7/obbCKvfLSBYSgGZVUkBTiveptaEp/kTnwX7ReIC2FpQa6HOc44MYAjkR95fV8C4O+/sby7jFJoj8RcD/1lbk/i71D9U6L+GM/05U/pDahr1No9dLqKGrr5Q2OpAejQW21gGY3z5hPOX9lOekskr0CsbT8S9mp0j/TG88/4ZWrG+pAvJE9T0Pdch4Gkq48606bHrYUmZNdSzGjNqddcV7kISOST+wDOzmtfpl9QHtf6fManTL5utre9UQke8Mf8of8AUM1LG0dfXTKDTGo5PQbk+QBKyc7SJVUdDvSfn3fWrZWL1bgpNold9Sl0nhjw/ZQlP7W/f9Rm9Law4hK0e5Q5Geae29J7Cl6aV26a0FJc1J5r2h82+faX/l5vX0Y3qN1A0KptoywS6wkrT80n5jO1xtttcBl7aNhhlhHQswPzMh3vlV09TZa7dZreLe2poVe9RLgpcfsY8V31xtax2uOBHI7VDzHOYeV1AnRtxNCmodcj/aTET14D8kErY8UgnnnvGdnbt/pdd2/U9ZvWklzYXHjEecI7EOshKwDz8zz5fUZLBBhOqD4jtKWpwPd3YOe8DgK/aB5ZyGllGm31tKZBg7TmAfIghZ7nBUQ0Ta7nZbW+TaRWWIEOY9HiLba47w24pHJV3q5Ps/opyd5WvTnbNS2a/wBw/BWBGiza62XXzZDQSDKdSkKUrke8AqOQWp9InZdhiqnUHThMuv8AWX47bruyx2VLLThQT2KRyPMZbWtKlWq402BgbpkEhsEgRuee/wBEDgBlbCYyob3rVL17QYmwT9Y5uJNixAFQi0bUEuOr7EcyOOzMOr0hZ1E+w5v2kvUFQ5JRGcsY1uzPbjqUeAXUoAKE/XKWWFxUbLQDkgeJskjeBMny35Sp1AK9sZA7DqZBruo1Tp645V9o1D1mmYHR2JDa0o7O338nnMduPWWBrl2ddoKmftWzIaS89Bg9iUxkK+Fb7qiEtA/XKm2ld7g1rdxq5bdSZgDHMhNQVm4yiHPSNe111tfUbSrDXKxSgldlEmtWUdjn3F0tcKQP3HLwiy2J0duREdQ8y4kLQtJ5BB9xyK1tVoAF4wdiCCD5gkeW6AgrnxkC0zqxQb1sG0UtQ8DM12f6m/ysHxDx8afp3dyf2jO11J6kVPS6mg3GyBxFa/YMw3X0+5jxOQHFf9UceePZa/rhQ0HWYgc8iR/MJqESpnjOCLKYnR234rqH2HEhSHEK5SoH3EHIhoPUWLvTdx4UZUJ2suJdYptbgWV+ArtLg49wOVCm9zHPAw2J88D+imVNsYxlalaCf3Q+rcRe6VZhP5JyHIjFX1StKv8A9ZphChSbOZHhwGXJMqQ4lplptPKlrUeAkD5knPSj07dTVe9IGLdpJU5RT0PKA/s3PYUf5pzSH0d76l1vrBrVjs76YkBt1wCU58Md1Taktuq+iVkHPevRe9P7vB7BqdT1COpEkDzlcuu3+LHVZidp2t9PW3KWd/xg3bu8Oa429xEqXAO4tI7f788Pco/AnMhpFZHsFX70tLvFfTvy2ltOqbKHUlAQrlP1VnHK6J9QKKxajyddsbNa5jpE6EyZDMlKx5OpcTyCDhua/Sarb1MODLTe28xERTjzBS02yyvlYSo/GoupSCB+hnh/pU+64jxf1wfqDARqJhoAcRPQAzIAknoSv0B6LGzsuB+oaZfULSWjLjIBON8AEGYA5kBby+jdsl1Nb3DWr62f2GNrs9hmvs5Pm86y6wl0NuH5rRzwT9cznWtIsLTplTABRmbdGfUD80R23HVf/EZIekfT+F010WspYKXC+Ww/OedVy4/JWAXFqP3k/wCrMHZc7F1+ooyODH1SikTXfo/LUGmx/m23jnQpVWVL11wzZrSdokhkTHKXGY7rxKqACWjr8JPyVrZ5n9YNguusXWK7v9VnhmDQPCtrHOwq7uOQpSPqTyf35vR13tNhq+lt8dHgPT7ySz6rGS0tKS0XPZLnKiB7IJOUB6MPS31JMRuxY5EJPiSO4+99XmrNjh1y3htpUumkGo7wNBgwN3kg8iIaJ3kqp41uDeSq9mP1nOtv0at0QKqSwppyIqrBCkKHBB/J5KfQ322XpW2XfTvYlltTSy6wk/zzd5NPWnyTEZPaf0fcc1R9Jjp9ZUe/at1J6e165kmC6mNax4pAPhjzBP7uc2rfiJ4hTqWVwGNDhLSGtYA9uWyRG4lueoUOZoIcFxelLUSNu6m18CqWftSi1ldlA7Tx2SlSU9h/9rJ3C63OO+j+1slUAu+nstwK9jnzM90+GlH/AIVn+WYKLGsdh6vWexy4TjNbKrK2JAkL44dCAtb3+SpWROd05stY6xLcrlJlaR625bVDbJC227B9PhufCfzfbIzD1tvUp06dYgik1rh3kEuZ7y4tPk5IcDI5/qV89CqkaH1pvtchvrciIZgyHF/2zimu1xw/4y8xHRu/2CthOt1+s1FvEFhP8JybcGMTzJc55T2KyzrXUpupdZKjYPVvCpJdAzHlzVrCUIkofJSk8/MhWQPpHsEvR1yKi70O+upTUqW73V64riShx9a0kcvDLalR11TqVIa9zhSJk8wHg/ebkEDE4kY2UAaSB71L+tNlImdHaiQamHX3Y2WtK4UeX4rXcH/ZHjcDILE2Gz6yaxZavIqqnV4zFgI9yfXFSZyghYX2No7QEhfHx5bHVVp7eeldS/R6/Mq5Td/AlS4MtTaHmGm3/aWsBRT/ADyJ7JoVlqV1RdStKrnLJZdEW9rm/fKjE+TiQfz0ZVb1qbKLGQ0VAXlp5NcCCB9qM50kzBAMkFSQSe2F0rtuVE60aOJQKSNZldgV+iJCMyno9w3dtpHJMpwmZbWcydbvfnOuh4oCT9EoCQBnf6j82nV3UdjhlhNUxQvRHnfWGx4T6n0KDagTyDnH9kbL0O3ObcajTfhJqN24ZcitbeDT8KQvzWWSr2VJV+jlT3Nq2zaAcA4sZuYB0uqEtnYHxAgHBI9ykYdPv+Sv2ToNPIiKjljgKHHOQzqttaOi/Se6tmZAVMQ2WK8OfOQv2UD/AO/3ZGbrrLumxxTF0jU3NWcKgl+02KQwRHHzKI7Ti1OK+mYDqM5b9QN31mRIiLVq9DEVKYfUkeHOs3PyY4SCfJscn95zSt7VtGs19yRpEuLdQJIGYxI8RgDJMSYgLIukQ1UTrmya3003TR7XWNjrrBBQmpvTHdJXIccJc9ZV94DpzY70qnGLnpdrgWlL8aXs1Y24g+YUFLPOcl90SrLbQp9JcWUSCqyjK4LxQgpX7woc/ccrqYztW29EdYprGtcfvqTYYC5qUOoWPBYcIW8CDwUkZ1m3NO6r0bskhzXEEuIkgh5aZAAwZb28PZV6S0FqynRXdLHpFsULQtydcVq9q6RrVg6rkMr+cRZP/pzNdAHD+Fm4cK9n8K7X/bZMb/QaLqB0xNTsbrUXxuTHfW6G1tuJ80rQT+cnK69GbXrzV7i2q9lfTPlIsZDqprToWJPeQe/kffmjUr0riyq1Tio4sBH+6CTqHc/eHXI3KzAIcByW1+MYzgK1YLcdYibpqtxr1mOYlnEcjOfQKHHP7j5/uzxl23V5+l7Na6/dtlufWSVsOgfeD7x9CPMZ7b5qT6YPo6O77B/DXSo3i7DBa7ZsVsecxkfMfetPy+8Z996HcaZw66db1zDKkZ5B3LyO38lq3FPW2RuFrh0o0OX1X0aZC6b3EiBt1Wkeu0rk1TbE5rn2H2lc8IWPcoe7/wA8tGleopu6afqeswn7rqRVRmq+SxKbIr6V9klUiQr/AJwQtSyB7vdlC+jDaMUXXHWftezcpoLj62ZThkFgK9hRShZ+4uBGbk+jVTSB1b6y20ypQmGq8eTBslxgCsl1fioQ7+cnyRnW9JeG2dK6rV69MP0tD2zjxOOiDycBAdG+BJIC3rTi1/RoChRqlrcjHTM535kb8zEStlHpTFBTLk280JjQY5XJlPkD2UJ5UtX7gTkB6MwJUyut9zt2VsWG3TPXktODhbMMDsjNn6hsAn/GzF2ks9abr7DqT36FXSAq5mj4LR1B5ERoj4mwRy4r58do+eXClIQAEgBIHAAzzypNtRNM/bfBPYbge8nJHIADsKBkyql9I3/B7H5/6drP96byZ6LCix6pTsVlLRdcJVxnQ6q63C2nUzCtLFNWw1MjSg8paUgradStKSVEDzKQMyWuPMU9ZFj2MliM9JcIZQt0JLh+5PJ88rfUD7anTG4Lvjp+hUgeIla6XO9XfT3rRvd3D8ew19EyI3bVyfaLbXqyT6yyP00/nD5jJp0+t4GzbjvrcVxqdU2N00824j2kuJMNjgjJC9okOJ1Ht55ntvvXzjb7kR1xAUkNtBv2E88kZjdR6YV3SvZ7SXXyGK6ksJhleG+8lttpxQAKUFWdS4vaFai9gHiLWAEDcDTM9wQYPMYOwKwa0gjzUq6hdOmtg0G5o6RxNfLkRihhzzAB557Tx59quODxlXdEIdS5sF1Fh0Deq2kV1r7To0qPhMqA4S6yPcUK/SGXZvetwtx1qVVy5T0QqKHWJMV/wnWHknubWhXyIUBlS6Rp9hQ7w/NvL5+22GeENuyZpZjrcZb57UNso4HAzVo12iwfRc8yTIaAd8b/AHSIHPLSBpOSpI8QMK6Nl1Wp2ysXXX9fGsoauCY8lsLQrjzHIOayej10+r34DMhiuiRVOLkIdeZaCVuIS+4AFHNsS+0lKyXU8N/Ge4ez+3K06a6a1oz6qdmcJaGg48guKSHSlbil8lI+QK+Ocop3LmWdShqPiLTGYwHT25jl/RSR4gViOu1BCp+jexiK328mN/vDeT/Vw1a0rrUhoeEXCO3OHqFrUbf9NsqAzCyiYhtRcY4WoBLiVggfcSjOTUS1Wx0wJj7Dc9zlxMcupDhT94T7+MrdUBtWUhuHOJ9xDfoVIHiJWvnWLpvrzPVvUvU9fqlKnQZ70nvipJecSW+Fr+8jnNjqmqEqjjMW6UvnsGRDdtUi7Vs9ReVlgl+dStPxFxmVpWB4xRz38HlJHZk7q7GE9XhUebGfbjp7HltvJUlsgeYJB4HGW3dw+uyi0uJ0NAzODLuvYj9BQ0QSqD0mpgR+sHUOEIwLRt4/H+iIOZT0eWmLDSaaJJZQpEUPlv8Az7mfHUTpzJs9lc2vQdqn0zluylud9mFl5MoIHaFo7ue1YHl3JyV9JaKFrkIwILjLTFe0GvVzIS460B83PPkE+8k5t3lelUoHQZc7RIgjToZpMk4ydo5bwcLFoIOVhfSg1WpuelltZT6qFMnVyG/VpD7IUthKnmwrsPy8synSjUYtdUuIZgRK+Hye2PFaCEDn3+QyTdR6it3LVJusS7RqEu2bSGilxBcWErSvlCSfa+HO7psVVfXeDIUgOKWrtAUOTx7+M033D3WTKBccOcYzEECO24PJZAeIlUr6SMWLDtOnjP4MMbSyl2wP2c74YSr8gn2vb8vZzP8AQuAwxDcdY1ljUu50n1BlTJC/Ie3+Tzv9Z9P/AA8RXyaDZTV22vLeUoRW2JCgHUhCgtK/hzsdIK2dTxFRLiweupaV9/rbkVlgpQQOEdrXlx8wc269w13D6dEOy3ceOftE7fY2IzErEDxk/T/1W1jGM4itTGMYRa29dvRG13qiqRc6ypvX9oXypbqU/kZSv+1T9/1GZ3TOmu3XGoUOvdQX00mvVcBmI9UV0rvdnqQjtKn308cNq/s0cfty9cZ2Txi9dbtt3u1BmWk5LcRgn4bxyhV+rbMrqV1dEqIMeDWRmocOOgNssMoCEISPcAB5AZ28YzjkkmSrFE9+1I7nW19epzwmGrFmQ8oEBXYjnnt5BHPnkd3LQ51tZzHYdZU2zU2uRCadsHCldeU93toAQrnnuCvLtPKRlnYzapXVWjAadp+MHt0HP4LEtBVXSumk5/qPUbK9JbmRIMWPHW26vtW4tsOfliQknuBWPZ54OZbqZqUzbYlM3AZS8IVgJLrZkhglPhrT5KLaxzyofLJ3jJ9sra2P5sED4/UppCq3YunNrZ7HIt6uWzF8VVahxlxZUh6Ow4VrSRxwFgn2VZ822h3T+ySZlfHpz6zZMTE2klIckMtoCQWexTZ8h2+yUqTlqYzMX9YADGBG3L5+aaQoC/rNw8zvEEMREx7kLXEfEkklSmkt9q0dns/D7+TnxG1Gwjb2zcMw4DcX7OTGkyFOFbzpSnhISnt9jg+8g8EZYOMr9rqAECMiPgB17BNIVc9OdAsNOfDlhYOTgqsZjkOSC6GlpWtRS3ykcI9rO690+Zn9Q17RYqKxHaZENtC+OFpCwSocefxeXnk5xkuvK7qjqk5cIPuTSIhVFrHSmypk7eH5jYkXjbwjyW3DzGC1rV4faEp5HtA93vzlg9O7JUe8SKumoUzKQ1rcaA8VNvOcf35Z8NPHHuHko8ZbGMtdxC4cSSRJj4R37D5RJUaAoNF0Z2tXqjUB/wD4NTtSUOLcI8QFxvtBTwkA8H9mYrV9In1FY9XyaKjjPpr3o32pHdKnpS1eQUsFsEd3vVypXnlnYyr2ysQQT+pJ6jrzx2U6QqtY6fWLW3avaOtNOsVlQxCdWiWEFDiCST2ls948/wBJOfNH03t6jZGp6Z7Sa9x+yffY81qaefV7DjRPuBT8Sfvy1MZmb+uQRjIjblJPzKaQq60jTZFGW41nr1GyGoqo7tjHcK3pnJ8ytJbHxccq5UrzzL9P9Ob0undhJSnxHJbzhX3lZKCshpPcfPhLfakD6ZLsZVVuqtXUHH7UTvynqT1KAAJjGM1VkmMYwiYxjCJjGMImMYwiYxjCJjGMImMYwiYxjCJjGMImMYwiYxjCJjGMImMYwi//2Q==" alt="AIEPRO Logo">
+                <img src="data:image/jpeg;base64,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" alt="AIEPRO Logo">
                 <span class="logo-text">AIEPRO</span>
             </a>
             <ul class="nav-links">
@@ -1139,39 +1192,116 @@
     </header>
 
     <!-- Floating CTA -->
-    <a href="#contact" class="floating-cta">📞 Book Free Assessment</a>
+    <a href="#contact" class="floating-cta">📞 Book Assessment</a>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <h1 class="fade-in">Master English, <span>Transform Your Future</span></h1>
-            <p class="fade-in">Join thousands of successful students at the Philippines' premier English proficiency institute. TESDA accredited with 4 convenient locations.</p>
-            <div class="hero-ctas fade-in">
+            <h1>Master English, <span>Transform Your Future</span></h1>
+            <p>Join thousands of successful students at the Philippines' premier English proficiency institute. TESDA accredited with global standards and proven results.</p>
+            <div class="hero-ctas">
                 <a href="#contact" class="btn-primary">Start Your Journey</a>
                 <a href="#programs" class="btn-secondary">Explore Programs</a>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats Section - TOEFL Style -->
     <section class="stats">
         <div class="container">
+            <div class="stats-title">
+                <h2>Why Choose AIEPRO?</h2>
+                <p>Join our community of successful English learners</p>
+            </div>
             <div class="stats-grid">
-                <div class="stat-item fade-in">
-                    <h3>15+</h3>
-                    <p>Years of Excellence</p>
-                </div>
-                <div class="stat-item fade-in">
-                    <h3>10,000+</h3>
-                    <p>Successful Students</p>
-                </div>
-                <div class="stat-item fade-in">
+                <div class="stat-card">
                     <h3>4</h3>
                     <p>Branch Locations</p>
+                    <div class="stat-detail">Serving Metro Manila</div>
                 </div>
-                <div class="stat-item fade-in">
-                    <h3>95%</h3>
-                    <p>Success Rate</p>
+                <div class="stat-card">
+                    <h3>4.6★</h3>
+                    <p>Google Rating</p>
+                    <div class="stat-detail">From 183+ reviews</div>
+                </div>
+                <div class="stat-card">
+                    <h3>63.9K</h3>
+                    <p>Facebook Followers</p>
+                    <div class="stat-detail">Growing community</div>
+                </div>
+                <div class="stat-card">
+                    <h3>TESDA</h3>
+                    <p>Accredited</p>
+                    <div class="stat-detail">Officially recognized</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOEFL Connection Section -->
+    <section class="toefl-connection">
+        <div class="container">
+            <div class="section-header">
+                <h2>Preparing Students for Global English Proficiency</h2>
+                <p>Your pathway to international success</p>
+            </div>
+            <div class="toefl-content">
+                <p>At AIEPRO, we prepare students for the world's most recognized English proficiency examinations. Our comprehensive programs are designed to help you excel in international assessments and achieve your academic and career goals.</p>
+                <div class="exam-badges">
+                    <div class="exam-badge">TOEFL iBT</div>
+                    <div class="exam-badge">IELTS</div>
+                    <div class="exam-badge">TOEIC</div>
+                    <div class="exam-badge">Cambridge</div>
+                </div>
+                <p>Whether you're aiming for university admission, career advancement, or international opportunities, our expert instructors will guide you to success with proven methodologies and personalized attention.</p>
+                <a href="#contact" class="btn-primary">Start Your Test Prep Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Learning Path</h2>
+                <p>Comprehensive English programs designed for your success, available both face-to-face and online</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <h3>Face-to-Face (F2F)</h3>
+                    <p>Interactive classroom experience with direct instructor guidance and peer interaction in our state-of-the-art facilities.</p>
+                    <ul class="program-features">
+                        <li>In-person instruction</li>
+                        <li>Small class sizes</li>
+                        <li>Immediate feedback</li>
+                        <li>Collaborative learning</li>
+                        <li>Access to all facilities</li>
+                    </ul>
+                    <a href="#pricing" class="btn-primary">View Pricing</a>
+                </div>
+                <div class="program-card">
+                    <h3>Learn English Online (LEO)</h3>
+                    <p>Flexible online learning with the same quality instruction from anywhere in the world through our advanced digital platform.</p>
+                    <ul class="program-features">
+                        <li>Learn from anywhere</li>
+                        <li>Flexible scheduling</li>
+                        <li>Digital resources</li>
+                        <li>One-on-one sessions</li>
+                        <li>Recorded lessons</li>
+                    </ul>
+                    <a href="#pricing" class="btn-primary">View Pricing</a>
+                </div>
+                <div class="program-card">
+                    <h3>Test Preparation</h3>
+                    <p>Specialized programs for TOEFL, IELTS, and other international English proficiency examinations with proven success rates.</p>
+                    <ul class="program-features">
+                        <li>TOEFL iBT Preparation</li>
+                        <li>IELTS Academic & General</li>
+                        <li>TOEIC Training</li>
+                        <li>Cambridge Exams</li>
+                        <li>Mock Tests & Practice</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary">Learn More</a>
                 </div>
             </div>
         </div>
@@ -1185,13 +1315,13 @@
                 <p>Learn from seasoned professionals dedicated to your English mastery</p>
             </div>
             <div class="team-grid">
-                <div class="team-card fade-in">
+                <div class="team-card">
                     <img src="https://www.aiepro.com/wp-content/uploads/2022/07/STAFF-SPECIALISTS-W-BG-705x705.png" alt="Vin Magbuhos" class="team-photo">
                     <h3>Vin Magbuhos</h3>
                     <div class="role">Co-founder & Lead Specialist</div>
                     <p>With over 15 years in English education, Vin has transformed thousands of students' lives through innovative teaching methodologies and personalized learning approaches.</p>
                 </div>
-                <div class="team-card fade-in">
+                <div class="team-card">
                     <img src="https://www.aiepro.com/wp-content/uploads/2022/07/STAFF-SPECIALISTS-W-BG-705x705.png" alt="Vaughn Garcia" class="team-photo">
                     <h3>Vaughn Garcia</h3>
                     <div class="role">Senior Specialist</div>
@@ -1209,67 +1339,19 @@
                 <p>Experience both traditional classroom excellence and cutting-edge online learning</p>
             </div>
             <div class="environment-grid">
-                <div class="environment-card fade-in">
+                <div class="environment-card">
                     <img src="https://www.aiepro.com/wp-content/uploads/2020/06/ZOOM-CLASS-2.jpg" alt="Online Zoom Classes" class="environment-image">
                     <div class="environment-content">
                         <h3>Interactive Online Classes</h3>
                         <p>Join our engaging virtual classrooms with real-time interaction, screen sharing, and collaborative learning experiences that bring students together from around the world.</p>
                     </div>
                 </div>
-                <div class="environment-card fade-in">
+                <div class="environment-card">
                     <img src="https://www.aiepro.com/wp-content/uploads/2020/06/ZOOM-CLASS.jpg" alt="Zoom Class Session" class="environment-image">
                     <div class="environment-content">
                         <h3>Personalized Learning Sessions</h3>
                         <p>Our small class sizes ensure personalized attention and customized learning paths that adapt to your pace and learning style for maximum results.</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Programs Section -->
-    <section class="programs" id="programs">
-        <div class="container">
-            <div class="section-header">
-                <h2>Choose Your Learning Path</h2>
-                <p>Comprehensive English programs designed for your success, available both face-to-face and online</p>
-            </div>
-            <div class="programs-grid">
-                <div class="program-card fade-in">
-                    <h3>Face-to-Face (F2F)</h3>
-                    <p>Interactive classroom experience with direct instructor guidance and peer interaction.</p>
-                    <ul class="program-features">
-                        <li>In-person instruction</li>
-                        <li>Small class sizes</li>
-                        <li>Immediate feedback</li>
-                        <li>Collaborative learning</li>
-                        <li>Access to all facilities</li>
-                    </ul>
-                    <a href="#pricing" class="btn-primary">View Pricing</a>
-                </div>
-                <div class="program-card fade-in">
-                    <h3>Learn English Online (LEO)</h3>
-                    <p>Flexible online learning with the same quality instruction from anywhere in the world.</p>
-                    <ul class="program-features">
-                        <li>Learn from anywhere</li>
-                        <li>Flexible scheduling</li>
-                        <li>Digital resources</li>
-                        <li>One-on-one sessions</li>
-                        <li>Recorded lessons</li>
-                    </ul>
-                    <a href="#pricing" class="btn-primary">View Pricing</a>
-                </div>
-                <div class="program-card fade-in">
-                    <h3>Specialized Courses</h3>
-                    <p>Targeted programs for specific goals including IELTS/TOEFL prep and business English.</p>
-                    <ul class="program-features">
-                        <li>IELTS/TOEFL Preparation</li>
-                        <li>Business Communication</li>
-                        <li>American Accent Training</li>
-                        <li>Public Speaking</li>
-                        <li>Career Development</li>
-                    </ul>
-                    <a href="#contact" class="btn-primary">Learn More</a>
                 </div>
             </div>
         </div>
@@ -1290,7 +1372,7 @@
 
             <!-- F2F Pricing -->
             <div class="pricing-content active" id="f2f-pricing">
-                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-navy);">Face-to-Face Classes</h3>
+                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-blue);">Face-to-Face Classes</h3>
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <h3>Group - 40 Hours</h3>
@@ -1352,7 +1434,7 @@
 
             <!-- LEO Pricing -->
             <div class="pricing-content" id="leo-pricing">
-                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-navy);">Learn English Online</h3>
+                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-blue);">Learn English Online</h3>
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <h3>Group - 40 Hours</h3>
@@ -1552,22 +1634,22 @@
                 <p>Hear from our students who transformed their careers and lives through English mastery</p>
             </div>
             <div class="testimonials-grid">
-                <div class="testimonial-card fade-in">
+                <div class="testimonial-card">
                     <p>AIEPRO transformed my communication skills completely. The personalized approach and dedicated instructors helped me secure a management position. The investment in my English education paid off tremendously!</p>
                     <div class="testimonial-author">KM Corpuz</div>
                     <div class="testimonial-role">Account Manager</div>
                 </div>
-                <div class="testimonial-card fade-in">
+                <div class="testimonial-card">
                     <p>The IELTS preparation program exceeded my expectations. I achieved my target score and landed my dream job abroad. The instructors' expertise and support made all the difference in my success.</p>
                     <div class="testimonial-author">Edmond Apolo</div>
                     <div class="testimonial-role">Marketing Manager</div>
                 </div>
-                <div class="testimonial-card fade-in">
+                <div class="testimonial-card">
                     <p>Learning with AIEPRO boosted my confidence immensely. The practical approach to business English helped me excel in presentations and client meetings. I couldn't be happier with my progress!</p>
                     <div class="testimonial-author">Leah Armada</div>
                     <div class="testimonial-role">Marketing Manager</div>
                 </div>
-                <div class="testimonial-card fade-in">
+                <div class="testimonial-card">
                     <p>The flexibility of online learning combined with the quality instruction made AIEPRO perfect for my busy schedule. My English skills improved dramatically and opened new career opportunities.</p>
                     <div class="testimonial-author">Rosdom Capellan</div>
                     <div class="testimonial-role">Marketing Specialist</div>
@@ -1584,7 +1666,7 @@
                 <p>4 convenient locations across Metro Manila to serve you better</p>
             </div>
             <div class="branches-grid">
-                <div class="branch-card fade-in">
+                <div class="branch-card">
                     <h3>Makati</h3>
                     <p>106 Perea St, Greenbelt Mansion Suite 505</p>
                     <ul class="branch-contacts">
@@ -1593,7 +1675,7 @@
                         <li>🕒 Mon-Fri 9AM-7PM</li>
                     </ul>
                 </div>
-                <div class="branch-card fade-in">
+                <div class="branch-card">
                     <h3>Quezon City</h3>
                     <p>131 Timog Ave, 2nd Floor</p>
                     <ul class="branch-contacts">
@@ -1602,7 +1684,7 @@
                         <li>🕒 Mon-Fri 9AM-7PM</li>
                     </ul>
                 </div>
-                <div class="branch-card fade-in">
+                <div class="branch-card">
                     <h3>Alabang</h3>
                     <p>One Griffinstone 9th Floor</p>
                     <ul class="branch-contacts">
@@ -1611,7 +1693,7 @@
                         <li>🕒 Mon-Fri 9AM-7PM</li>
                     </ul>
                 </div>
-                <div class="branch-card fade-in">
+                <div class="branch-card">
                     <h3>Rizal/Antipolo</h3>
                     <p>Gems Building, 2nd Floor</p>
                     <ul class="branch-contacts">
@@ -1691,9 +1773,9 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('.header');
             if (window.scrollY > 100) {
-                header.style.boxShadow = '0 5px 30px rgba(26, 41, 81, 0.2)';
+                header.style.boxShadow = '0 8px 30px rgba(0, 51, 102, 0.15)';
             } else {
-                header.style.boxShadow = '0 2px 20px rgba(26, 41, 81, 0.1)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 51, 102, 0.1)';
             }
         });
 
@@ -1760,7 +1842,7 @@
                 
                 setTimeout(() => {
                     submitBtn.textContent = originalText;
-                    submitBtn.style.background = 'var(--accent-gold)';
+                    submitBtn.style.background = 'var(--accent-purple)';
                     this.reset();
                     alert('Thank you for your interest! We will contact you within 24 hours to schedule your free assessment.');
                 }, 2000);
@@ -1784,7 +1866,7 @@
 
         // Observe elements when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.fade-in, .program-card, .pricing-card, .testimonial-card, .branch-card, .team-card, .environment-card').forEach(el => {
+            document.querySelectorAll('.stat-card, .program-card, .pricing-card, .testimonial-card, .branch-card, .team-card, .environment-card').forEach(el => {
                 observer.observe(el);
             });
         });
@@ -1816,11 +1898,11 @@
 
         // Add smooth hover effects for interactive elements
         document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.program-card, .pricing-card, .team-card, .branch-card');
+            const cards = document.querySelectorAll('.program-card, .pricing-card, .team-card, .branch-card, .stat-card');
             
             cards.forEach(card => {
                 card.addEventListener('mouseenter', () => {
-                    card.style.transform = 'translateY(-10px) scale(1.02)';
+                    card.style.transform = 'translateY(-8px) scale(1.02)';
                 });
                 
                 card.addEventListener('mouseleave', () => {
