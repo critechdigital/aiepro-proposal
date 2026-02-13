@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Digital Transformation Proposal - AIEPRO | CriTech Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1a2951;
+            --secondary-navy: #2c3e50;
+            --accent-gold: #f39c12;
+            --accent-amber: #f1c40f;
+            --light-gold: #fdf6e3;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --border-gray: #e9ecef;
+            --success-green: #27ae60;
+            --danger-red: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light-gray);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        .presentation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(26, 41, 81, 0.1);
+        }
+        
+        .slide {
+            min-height: 100vh;
+            padding: 4rem;
+            display: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .slide-number {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: var(--primary-navy);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-navy);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(26, 41, 81, 0.3);
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .nav-btn {
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .nav-btn:hover, .nav-btn:disabled {
+            background: var(--accent-gold);
+            color: white;
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .slide-counter {
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Slide Styles */
+        .title-slide {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .title-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .title-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .title-slide h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .title-slide .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .title-slide .company {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .title-slide .date {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+        
+        .content-slide {
+            background: white;
+            padding: 6rem 4rem;
+            text-align: left;
+        }
+        
+        .content-slide h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .content-slide h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-slide p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+        
+        .content-slide ul {
+            font-size: 1.2rem;
+            line-height: 2;
+            margin-bottom: 2rem;
+        }
+        
+        .content-slide li {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .content-slide li::before {
+            content: '→';
+            color: var(--accent-gold);
+            font-weight: bold;
+            position: absolute;
+            left: -1rem;
+        }
+        
+        .problem-items li::before {
+            content: '✗';
+            color: var(--danger-red);
+        }
+        
+        .solution-items li::before {
+            content: '✓';
+            color: var(--success-green);
+        }
+        
+        .opportunity-items li::before {
+            content: '📈';
+        }
+        
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .column h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 15px;
+        }
+        
+        .before-column h3 {
+            background: var(--danger-red);
+            color: white;
+        }
+        
+        .after-column h3 {
+            background: var(--success-green);
+            color: white;
+        }
+        
+        .comparison-item {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .before-column .comparison-item {
+            border-left: 4px solid var(--danger-red);
+        }
+        
+        .after-column .comparison-item {
+            border-left: 4px solid var(--success-green);
+        }
+        
+        /* Stats and Numbers */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-card {
+            background: var(--light-gold);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border-top: 4px solid var(--accent-gold);
+        }
+        
+        .stat-card h4 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card p {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin: 0;
+        }
+        
+        /* Revenue Model */
+        .revenue-model {
+            background: var(--light-gold);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            border: 3px solid var(--accent-gold);
+        }
+        
+        .revenue-model h3 {
+            color: var(--accent-gold);
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .revenue-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .revenue-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(26, 41, 81, 0.1);
+        }
+        
+        .revenue-step h4 {
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+        
+        /* Timeline */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+        
+        .timeline-item {
+            background: var(--primary-navy);
+            color: white;
+            padding: 2rem 1rem;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .timeline-item h4 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -0.5rem;
+            width: 0;
+            height: 0;
+            border-left: 10px solid var(--primary-navy);
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            transform: translateY(-50%);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        /* About CriTech */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .about-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .about-card h4 {
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .about-card p {
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--accent-gold);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .cta-section h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            background: white;
+            color: var(--accent-gold);
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 2rem 1rem;
+            }
+            
+            .title-slide h1 {
+                font-size: 2.5rem;
+            }
+            
+            .content-slide h2 {
+                font-size: 2rem;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-container {
+                bottom: 1rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide.active > * {
+            animation: slideInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active title-slide">
+            <div class="slide-number">1 / 10</div>
+            <div class="title-content">
+                <h1>Digital Transformation Proposal</h1>
+                <div class="subtitle">for AIEPRO</div>
+                <div class="company">CriTech Digital</div>
+                <div class="date">February 2026</div>
+            </div>
+        </div>
+
+        <!-- Slide 2: The Problem -->
+        <div class="slide content-slide">
+            <div class="slide-number">2 / 10</div>
+            <h2>The Problem</h2>
+            <p>AIEPRO's current digital presence is limiting their growth potential and creating operational inefficiencies.</p>
+            <ul class="problem-items">
+                <li><strong>Outdated WordPress site</strong> - Poor user experience, slow loading times</li>
+                <li><strong>No SEO optimization</strong> - Missing out on organic search traffic</li>
+                <li><strong>No online enrollment system</strong> - Manual processes create friction</li>
+                <li><strong>Pricing in Excel format</strong> - Unprofessional presentation, hard to understand</li>
+                <li><strong>No lead capture system</strong> - Losing potential students daily</li>
+                <li><strong>No analytics or tracking</strong> - Flying blind without data insights</li>
+                <li><strong>Mobile unfriendly</strong> - Poor experience on phones/tablets</li>
+                <li><strong>No payment integration</strong> - Relying only on PayPal manually</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3: The Opportunity -->
+        <div class="slide content-slide">
+            <div class="slide-number">3 / 10</div>
+            <h2>The Opportunity</h2>
+            <p>The English education market in the Philippines is experiencing unprecedented growth.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>₱15B+</h4>
+                    <p>English Education Market Size (PH)</p>
+                </div>
+                <div class="stat-card">
+                    <h4>1.3M+</h4>
+                    <p>BPO Workers Need English</p>
+                </div>
+                <div class="stat-card">
+                    <h4>400K+</h4>
+                    <p>Annual IELTS Test Takers</p>
+                </div>
+                <div class="stat-card">
+                    <h4>25%</h4>
+                    <p>Annual Market Growth</p>
+                </div>
+            </div>
+
+            <ul class="opportunity-items">
+                <li><strong>BPO Industry Boom</strong> - 1.3M workers need English proficiency</li>
+                <li><strong>International Migration</strong> - Rising demand for IELTS/TOEFL prep</li>
+                <li><strong>Online Learning Trend</strong> - 300% growth in digital education</li>
+                <li><strong>Post-Pandemic Shift</strong> - Hybrid learning is the new normal</li>
+                <li><strong>Corporate Training</strong> - Companies investing in employee English skills</li>
+            </ul>
+        </div>
+
+        <!-- Slide 4: What We'll Build -->
+        <div class="slide content-slide">
+            <div class="slide-number">4 / 10</div>
+            <h2>What We'll Build</h2>
+            <p>A modern, conversion-optimized website that transforms visitors into enrolled students.</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <h4>🚀 Modern Website</h4>
+                    <p>Fast, beautiful, mobile-first design that converts visitors into leads</p>
+                </div>
+                <div class="about-card">
+                    <h4>📋 Online Enrollment</h4>
+                    <p>Streamlined registration process with instant confirmations</p>
+                </div>
+                <div class="about-card">
+                    <h4>💳 Payment Integration</h4>
+                    <p>Multiple payment options: PayPal, cards, bank transfers, GCash</p>
+                </div>
+                <div class="about-card">
+                    <h4>📊 Clean Pricing Display</h4>
+                    <p>Professional pricing tables that highlight popular packages</p>
+                </div>
+                <div class="about-card">
+                    <h4>🔍 SEO Optimized</h4>
+                    <p>Rank #1 for "English classes Philippines" and related keywords</p>
+                </div>
+                <div class="about-card">
+                    <h4>📱 Mobile-First</h4>
+                    <p>Perfect experience on all devices - phone, tablet, desktop</p>
+                </div>
+                <div class="about-card">
+                    <h4>🎯 Lead Funnel</h4>
+                    <p>Automated lead capture, nurturing, and conversion system</p>
+                </div>
+                <div class="about-card">
+                    <h4>📈 Analytics Dashboard</h4>
+                    <p>Track visitors, conversions, revenue, and student success</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Before/After Comparison -->
+        <div class="slide content-slide">
+            <div class="slide-number">5 / 10</div>
+            <h2>Before vs After</h2>
+            <div class="two-column">
+                <div class="column before-column">
+                    <h3>Current State</h3>
+                    <div class="comparison-item">
+                        <strong>WordPress site from 2015</strong><br>
+                        Slow, outdated, security issues
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Manual enrollment</strong><br>
+                        Phone calls, emails, spreadsheets
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Excel pricing sheets</strong><br>
+                        Confusing, unprofessional
+                    </div>
+                    <div class="comparison-item">
+                        <strong>No mobile optimization</strong><br>
+                        Poor experience on phones
+                    </div>
+                    <div class="comparison-item">
+                        <strong>PayPal only</strong><br>
+                        Limited payment options
+                    </div>
+                    <div class="comparison-item">
+                        <strong>No analytics</strong><br>
+                        No data on performance
+                    </div>
+                </div>
+                <div class="column after-column">
+                    <h3>With CriTech</h3>
+                    <div class="comparison-item">
+                        <strong>Modern React application</strong><br>
+                        Fast, secure, professional
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Automated online enrollment</strong><br>
+                        One-click registration and payment
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Beautiful pricing display</strong><br>
+                        Clear, professional, conversion-focused
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Mobile-first design</strong><br>
+                        Perfect on all devices
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Multiple payment options</strong><br>
+                        PayPal, cards, GCash, bank transfer
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Advanced analytics</strong><br>
+                        Real-time insights and reporting
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Revenue Model -->
+        <div class="slide content-slide">
+            <div class="slide-number">6 / 10</div>
+            <h2>How This Makes AIEPRO More Money</h2>
+            
+            <div class="revenue-model">
+                <h3>Projected Revenue Increase: 150-300%</h3>
+                <div class="revenue-flow">
+                    <div class="revenue-step">
+                        <h4>📱 Mobile-First Design</h4>
+                        <p>70% of visitors use mobile. Current site loses 60% of mobile traffic.</p>
+                    </div>
+                    <div class="revenue-step">
+                        <h4>🔍 SEO Optimization</h4>
+                        <p>Rank #1 for key terms = 10x more organic visitors</p>
+                    </div>
+                    <div class="revenue-step">
+                        <h4>🎯 Conversion Optimization</h4>
+                        <p>Professional design increases conversion rates by 200%</p>
+                    </div>
+                    <div class="revenue-step">
+                        <h4>⚡ Automated Enrollment</h4>
+                        <p>Reduce admin work by 80%, increase enrollment speed</p>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="solution-items">
+                <li><strong>Online Lead Generation</strong> - 24/7 automated student acquisition</li>
+                <li><strong>Reduced Administrative Costs</strong> - 80% less manual work</li>
+                <li><strong>Higher Conversion Rates</strong> - Professional site converts 3x better</li>
+                <li><strong>Broader Market Reach</strong> - Attract international students online</li>
+                <li><strong>Upselling Opportunities</strong> - Suggest additional courses during enrollment</li>
+                <li><strong>Retention Tracking</strong> - Data-driven student success programs</li>
+            </ul>
+        </div>
+
+        <!-- Slide 7: Our Proposal -->
+        <div class="slide content-slide">
+            <div class="slide-number">7 / 10</div>
+            <h2>Our Proposal</h2>
+            
+            <div class="cta-section">
+                <h3>FREE Website Rebuild</h3>
+                <p>Zero upfront costs. We'll build everything for free.</p>
+            </div>
+
+            <h3>Revenue Share Model</h3>
+            <p>Instead of charging upfront fees, we propose a revenue-sharing partnership:</p>
+            
+            <ul class="solution-items">
+                <li><strong>10-15% revenue share</strong> on online enrollments only</li>
+                <li><strong>Face-to-face enrollments</strong> - AIEPRO keeps 100%</li>
+                <li><strong>Existing students</strong> - AIEPRO keeps 100%</li>
+                <li><strong>Referral enrollments</strong> - AIEPRO keeps 100%</li>
+                <li><strong>Online platform enrollments</strong> - We share in the success</li>
+            </ul>
+
+            <div class="revenue-model">
+                <h3>Why This Works for Everyone</h3>
+                <div class="revenue-flow">
+                    <div class="revenue-step">
+                        <h4>🎯 For AIEPRO</h4>
+                        <p>No upfront risk, immediate ROI, we're invested in your success</p>
+                    </div>
+                    <div class="revenue-step">
+                        <h4>💼 For CriTech</h4>
+                        <p>We only succeed when you succeed - perfect alignment</p>
+                    </div>
+                    <div class="revenue-step">
+                        <h4>📊 Transparent Tracking</h4>
+                        <p>All online enrollments tracked with clear attribution</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Timeline -->
+        <div class="slide content-slide">
+            <div class="slide-number">8 / 10</div>
+            <h2>Project Timeline</h2>
+            <p>Professional website delivered in 2-4 weeks, depending on complexity.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Week 1</h4>
+                    <p>Discovery & Design</p>
+                    <p>• Content audit<br>• Design mockups<br>• Technical planning</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Week 2</h4>
+                    <p>Development</p>
+                    <p>• Core website build<br>• Mobile optimization<br>• Payment integration</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Week 3</h4>
+                    <p>Testing & Content</p>
+                    <p>• QA testing<br>• Content migration<br>• SEO optimization</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Week 4</h4>
+                    <p>Launch & Training</p>
+                    <p>• Go live<br>• Team training<br>• Analytics setup</p>
+                </div>
+            </div>
+
+            <h3>What We Need From AIEPRO</h3>
+            <ul class="solution-items">
+                <li><strong>Content & Images</strong> - High-quality photos, course descriptions</li>
+                <li><strong>Brand Guidelines</strong> - Logos, colors, brand voice</li>
+                <li><strong>Access</strong> - Current website, social media, email lists</li>
+                <li><strong>Decision Maker Availability</strong> - Weekly check-ins for approvals</li>
+                <li><strong>Payment Integration</strong> - PayPal business account details</li>
+            </ul>
+        </div>
+
+        <!-- Slide 9: About CriTech Digital -->
+        <div class="slide content-slide">
+            <div class="slide-number">9 / 10</div>
+            <h2>About CriTech Digital</h2>
+            <p>Your trusted technology partner with proven expertise in digital transformation.</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <h4>💻 Full-Stack Development</h4>
+                    <p>React, Node.js, Python, cloud deployment - we handle everything</p>
+                </div>
+                <div class="about-card">
+                    <h4>🎨 UI/UX Design</h4>
+                    <p>Beautiful, conversion-focused designs that users love</p>
+                </div>
+                <div class="about-card">
+                    <h4>📊 Analytics & SEO</h4>
+                    <p>Data-driven optimization for maximum ROI</p>
+                </div>
+                <div class="about-card">
+                    <h4>💳 Payment Integration</h4>
+                    <p>Secure, PCI-compliant payment processing</p>
+                </div>
+                <div class="about-card">
+                    <h4>🚀 Performance</h4>
+                    <p>Lightning-fast websites that load in under 2 seconds</p>
+                </div>
+                <div class="about-card">
+                    <h4>📱 Mobile-First</h4>
+                    <p>Perfect responsive design for all devices</p>
+                </div>
+            </div>
+
+            <h3>Our Track Record</h3>
+            <ul class="solution-items">
+                <li><strong>Enterprise Applications</strong> - Built scalable solutions for Fortune 500 companies</li>
+                <li><strong>E-commerce Platforms</strong> - Multi-million peso revenue processing</li>
+                <li><strong>Education Technology</strong> - Learning management systems and student portals</li>
+                <li><strong>Digital Marketing</strong> - SEO campaigns generating 500%+ ROI</li>
+                <li><strong>Mobile Applications</strong> - iOS and Android apps with 100K+ downloads</li>
+            </ul>
+        </div>
+
+        <!-- Slide 10: Next Steps -->
+        <div class="slide content-slide">
+            <div class="slide-number">10 / 10</div>
+            <h2>Next Steps</h2>
+            
+            <div class="cta-section">
+                <h3>Ready to Transform AIEPRO?</h3>
+                <p>Let's schedule a free consultation to discuss the details.</p>
+                <button class="cta-button" onclick="window.open('mailto:hello@critech.digital?subject=AIEPRO Partnership Discussion', '_blank')">
+                    Start the Conversation
+                </button>
+            </div>
+
+            <h3>What Happens Next</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Today</h4>
+                    <p>• Review this proposal<br>• Ask any questions<br>• Internal discussion</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>This Week</h4>
+                    <p>• Free consultation<br>• Technical Q&A<br>• Contract discussion</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Next Week</h4>
+                    <p>• Project kickoff<br>• Discovery phase<br>• Design concepts</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Month 1</h4>
+                    <p>• New website live<br>• Training complete<br>• Results tracking</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center; padding: 2rem; background: var(--light-gold); border-radius: 15px;">
+                <h3 style="color: var(--primary-navy); margin-bottom: 1rem;">Remember: Zero Upfront Cost</h3>
+                <p style="font-size: 1.2rem; color: var(--text-dark); margin: 0;">
+                    We only succeed when you succeed. No risk, all reward.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-container">
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">10</span>
+            </span>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        function updateSlideCounter() {
+            document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+            document.getElementById('totalSlides').textContent = totalSlides;
+        }
+        
+        function updateNavButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.disabled = currentSlideIndex === 0;
+            nextBtn.disabled = currentSlideIndex === totalSlides - 1;
+        }
+        
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Show current slide
+            slides[index].classList.add('active');
+            
+            // Update slide number in each slide
+            const slideNumber = slides[index].querySelector('.slide-number');
+            if (slideNumber) {
+                slideNumber.textContent = `${index + 1} / ${totalSlides}`;
+            }
+            
+            updateSlideCounter();
+            updateNavButtons();
+        }
+        
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            
+            if (currentSlideIndex < 0) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex >= totalSlides) {
+                currentSlideIndex = totalSlides - 1;
+            }
+            
+            showSlide(currentSlideIndex);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+                e.preventDefault();
+                changeSlide(1);
+            } else if (e.key === 'Home') {
+                currentSlideIndex = 0;
+                showSlide(currentSlideIndex);
+            } else if (e.key === 'End') {
+                currentSlideIndex = totalSlides - 1;
+                showSlide(currentSlideIndex);
+            }
+        });
+        
+        // Initialize
+        updateSlideCounter();
+        updateNavButtons();
+        
+        // Touch/swipe support for mobile
+        let startX = null;
+        
+        document.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+        });
+        
+        document.addEventListener('touchend', function(e) {
+            if (startX === null) return;
+            
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            
+            if (Math.abs(diffX) > 50) { // Minimum swipe distance
+                if (diffX > 0) {
+                    changeSlide(1); // Swipe left - next slide
+                } else {
+                    changeSlide(-1); // Swipe right - previous slide
+                }
+            }
+            
+            startX = null;
+        });
+        
+        // Click anywhere to advance (optional)
+        document.addEventListener('click', function(e) {
+            // Only advance if clicking on the slide content, not navigation
+            if (!e.target.closest('.nav-container') && !e.target.closest('button') && !e.target.closest('a')) {
+                changeSlide(1);
+            }
+        });
+    </script>
+</body>
+</html>
